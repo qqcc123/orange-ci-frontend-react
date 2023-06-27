@@ -2,6 +2,8 @@ import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Root, {loader as rootLoader, action as rootAction} from './routers/root'
+import { Provider } from 'react-redux'
+import appStore from './redux/store/appStore'
 
 import './style.css'
 import AppImage from './orange.png'
@@ -28,13 +30,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
    <React.StrictMode>
-      <RouterProvider router={router} />
+      <Provider store={appStore}>
+        <RouterProvider router={router} />
+      </Provider>
    </React.StrictMode>
 )
-
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <HotRoutes />
-//   </Provider>,
-//   document.getElementById('root'),
-// )
