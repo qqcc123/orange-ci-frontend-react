@@ -2,7 +2,6 @@ import { Outlet, Link, useLoaderData, Form, redirect, useSubmit, NavLink, useNav
 import { getContacts, createContact } from "../contacts";
 import { useEffect } from "react";
 import React from 'react'
-import Counter from '../component/Counter'
 
 export default function Root() {
     const { contacts, q } = useLoaderData();
@@ -21,8 +20,7 @@ export default function Root() {
     }, [q]);
 
   return (
-    <div>
-      <Counter />
+    <>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
         <div>
@@ -98,7 +96,7 @@ export default function Root() {
         }>
         <Outlet />
       </div>
-    </div>
+    </>
   );
 }
 
