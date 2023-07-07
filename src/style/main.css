@@ -1,0 +1,49 @@
+#appRoot {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#appRoot div {
+    width: 100%;
+}
+
+#rootHeader {
+    height: 80px;
+    border: 1px solid green;
+}
+
+#rootBody {
+    height: 800px;
+    border: 1px solid green;
+    display: flex;
+}
+
+#rootBody ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#rootBody li {
+    width: 150px;
+    margin: 5px 0;
+    padding: 0;
+    padding: 0 20px 0 5px;
+    border: 1px solid yellow;
+    background-color: aquamarine;
+}
+
+#rootBody h3 {
+    color: black;
+    border: 1px solid red;
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* ------------------------------------------------ */
+#rootBottom {
+    height: 150px;
+    border: 1px solid green;
+}

@@ -1,10 +1,10 @@
 import { Outlet, Link, useLoaderData, Form, redirect, useSubmit, NavLink, useNavigation } from "react-router-dom";
 import { getContacts, createContact } from "../contacts";
 import { useEffect } from "react";
-import React from 'react'
+import * as React from 'react'
 
 export default function Root() {
-    const { contacts, q } = useLoaderData();
+    const { contacts, q } : any = useLoaderData();
     const navigation = useNavigation();
     const submit = useSubmit();
 
@@ -13,10 +13,10 @@ export default function Root() {
       new URLSearchParams(navigation.location.search).has(
         "q"
       );
-    console.log("--Root----", contacts)
 
     useEffect(() => {
-      document.getElementById("q").value = q | 1;
+      let element: any = document.getElementById("q")
+      element.value = q | 1;
     }, [q]);
 
   return (
@@ -34,6 +34,7 @@ export default function Root() {
               name="q"
               defaultValue={q}
               onChange={(event) => {
+                console.log("-----onChange-------", event.currentTarget.form)
                 const isFirstSearch = q == null;
                 submit(event.currentTarget.form, {
                   replace: !isFirstSearch,
@@ -57,7 +58,7 @@ export default function Root() {
         <nav>
            {contacts && contacts.length ? (
             <ul>
-              {contacts.map((contact) => (
+              {contacts.map((contact : any) => (
                 <li key={contact.id}>
                   <NavLink
                     to={`contacts/${contact.id}`}
@@ -102,15 +103,15 @@ export default function Root() {
 
 export async function action() {
   const contact = await createContact();
-  console.log("-------action1-------", contact)
+  console.log("---root----action", contact)
   // return { contact };
   return redirect(`/contacts/${contact.id}/edit`);
 }
 
-export async function loader({ request }) {
+export async function loader({ request } : any) {
     const url = new URL(request.url);
     const q = url.searchParams.get("q");
     const contacts = await getContacts(q);
-    console.log("---loader--: ", contacts, url)
+    console.log("---root----loader: ", contacts, url)
     return { contacts, q };
 }

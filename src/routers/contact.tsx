@@ -1,22 +1,16 @@
 import { Form, useLoaderData, useFetcher } from "react-router-dom";
 import { getContact, updateContact } from "../contacts";
-import React from 'react'
+import * as React from 'react'
 
-export async function loader({ params }) {
+export async function loader({ params } : any) {
+  console.log("----contact----loader---------")
   const contact = await getContact(params.contactId);
   return { contact };
 }
 
 export default function Contact() {
-  const { contact } = useLoaderData();
-  // const contact = {
-  //   first: "Your",
-  //   last: "Name",
-  //   avatar: "https://placekitten.com/g/200/200",
-  //   twitter: "your_handle",
-  //   notes: "Some notes",
-  //   favorite: true,
-  // };
+  const { contact } : any = useLoaderData();
+  console.log("-------------Contact---------------------")
 
   return (
     <div id="contact">
@@ -78,7 +72,7 @@ export default function Contact() {
 }
 
 // eslint-disable-next-line react/prop-types
-function Favorite({ contact }) {
+function Favorite({ contact } : any) {
   // yes, this is a `let` for later
   // eslint-disable-next-line react/prop-types
   const fetcher = useFetcher();
@@ -100,7 +94,8 @@ function Favorite({ contact }) {
   );
 }
 
-export async function action({ request, params }) {
+export async function action({ request, params } : any) {
+  console.log("--------action---------")
   let formData = await request.formData();
   return updateContact(params.contactId, {
     favorite: formData.get("favorite") === "true",
