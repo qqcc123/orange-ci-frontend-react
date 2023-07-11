@@ -29,7 +29,7 @@ export default function Main() {
 
             </div>
             <div id="rootBody">
-                <nav>
+                <nav id="rootBody_nav">
                     <ul>
                         {navList.map((item: navType) => (
                             <li key={item.id}>

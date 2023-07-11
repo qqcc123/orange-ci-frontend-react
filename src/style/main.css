@@ -20,13 +20,13 @@
     display: flex;
 }
 
-#rootBody ul {
+#rootBody_nav ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-#rootBody li {
+#rootBody_nav li {
     width: 150px;
     margin: 5px 0;
     padding: 0;
@@ -35,7 +35,7 @@
     background-color: aquamarine;
 }
 
-#rootBody h3 {
+#rootBody_nav h3 {
     color: black;
     border: 1px solid red;
     margin: 0;

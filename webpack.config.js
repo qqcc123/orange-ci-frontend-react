@@ -10,6 +10,11 @@ module.exports = {
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
+    alias: {
+      //不知道是否可以通过插件的方式传递转换后的路径到tsconfig.js中
+      //别名在tsconfig.js中也要设置 http://www.gaofeiyu.com/blog/893.html  https://segmentfault.com/a/1190000022665283
+      '@component': path.resolve(__dirname, './src/component'), 
+    }
   },
   devServer: {
     static: './dist',

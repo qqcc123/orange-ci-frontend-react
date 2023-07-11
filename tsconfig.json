@@ -8,9 +8,13 @@
     "allowJs": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      //别名在webpcak.config.js中也要设置 http://www.gaofeiyu.com/blog/893.html  https://segmentfault.com/a/1190000022665283
+      "@component/*": ["src/component/*"]  
+    }
   },
-  "include": ["src/**/*", "types/image.d.ts"],
+  "include": ["src/**/*", "types/image.d.ts", ],
   "exclude": [
         "dist"
     ]
